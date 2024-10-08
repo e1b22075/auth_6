@@ -17,10 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/sample3")
 public class Sample31Controller {
 
-
   @GetMapping("step1")
   public String sample31() {
     return "sample31.html";
   }
 
+  @GetMapping("step2")
+  public String sample32(ModelMap model, Principal prin) {
+    String loginUser = prin.getName(); // ログインユーザ情報
+    model.addAttribute("login_user", loginUser);
+    return "sample31.html";
+  }
 }
